@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SimBase.Document Type="InGamePanels" version="1,0">
+  <Filename>InGamePanel_CustomPanel.spb</Filename>
+  <InGamePanels.InGamePanelDefinition id="PANEL_CUSTOMATC" Name="Custom ATC" url="html_ui/InGamePanels/CustomATC/CustomATC.html" icon="ICON_TOOLBAR_ATC" 
+  minWidth="50" minHeight="45" buttonVisible="true">
+  </InGamePanels.InGamePanelDefinition>
+</SimBase.Document>

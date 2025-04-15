@@ -1,0 +1,232 @@
+
+#CustomATCPanel  #RadioOff{
+  display: block;
+  width: 100%;
+  margin: 8px;
+  position: relative;
+  left: 2.5%;
+  top: calc(var(--screenHeight) * (15px / 2160) );
+  background-color: var(--colorBackgroundPanel);
+}
+
+#RadioOn {
+  display: flex;
+  margin: 8px;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+#RadioOff .Line1 {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--colorBackgroundPanel);
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+}
+#RadioOff .Line1 .Title {
+  margin-left: calc(var(--screenHeight) * (15px / 2160) );
+}
+#RadioOff .Line1 icon-element {
+  background-color: red;
+}
+#RadioOff .Line2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--screenHeight) * (55px / 2160) );
+  text-align: center;
+}
+
+#ATCDialogsDiv {
+  display: flex;
+  flex: 1 0 calc(var(--screenHeight) * (100px / 1080) );
+  position: relative;
+  border-top: calc(var(--screenHeight) * (3px / 1080) ) solid white;
+  background-color: var(--backgroundColorPanel);
+  padding: var(--halfMargin);
+  min-height: 0;
+}
+#ATCDialogsDiv .Minimize {
+  display: none;
+}
+#ATCDialogsDiv.maximized {
+  min-height: calc(var(--screenHeight) * (450px / 2160) );
+}
+#ATCDialogsDiv.maximized .Maximize {
+  display: none;
+}
+#ATCDialogsDiv.maximized .Minimize {
+  display: block;
+}
+#ATCDialogsDiv .toggleAtcSizeControl {
+  left: 0;
+  top: 0;
+  z-index: 2;
+  position: absolute;
+}
+#ATCDialogsDiv .toggleAtcSizeControl icon-button {
+  width: calc(var(--screenHeight) * (48px / 2160) );
+  height: calc(var(--screenHeight) * (48px / 2160) );
+}
+#ATCDialogsDiv #ATCDialogs li {
+  margin-bottom: calc(var(--screenHeight) * (24px / 2160) );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  --atcBGCol: red;
+  --atcCol: orange;
+}
+#ATCDialogsDiv #ATCDialogs li .header {
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: calc(var(--screenHeight) * (8px / 2160) );
+}
+#ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) {
+  --atcBGCol: #3f4751;
+  --atcCol: white;
+  --atcIconBGCol: white;
+  --atcIconCol: #3f4751;
+}
+#ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) .header {
+  text-align: left;
+}
+#ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) .meta {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+#ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) .meta:after {
+  font-family: "ui-icon-font" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  background-color: unset;
+  content: "";
+  font-size: calc(var(--screenHeight) * (80px / 2160) );
+  display: flex;
+  justify-content: center;
+}
+#ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) span {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#ATCDialogsDiv #ATCDialogs li:not(.ATCDialogs_Agent):not(.ATCDialogs_Aircraft) span:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - calc(var(--screenHeight) * (20px / 2160) ));
+  left: calc(var(--screenHeight) * (-20px / 2160) );
+  margin-top: auto;
+  border-top: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-bottom: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-right: calc(var(--screenHeight) * (20px / 2160) ) solid var(--color-white);
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Agent {
+  --atcBGCol: var(--backgroundColorDarkerPanel);
+  --atcCol: var(--textColor);
+  --atcIconBGCol: var(--backgroundColorDarkerPanel);
+  --atcIconCol: var(--textColor);
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Agent .header {
+  text-align: left;
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Agent .message {
+  margin-left: var(--halfMargin);
+  margin-right: calc(calc(var(--screenHeight) * (48px / 1080) ) + var(--halfMargin));
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Agent .message:after {
+  content: "";
+  position: absolute;
+  top: calc(calc(var(--screenHeight) * (16px / 1080) ));
+  left: calc(var(--screenHeight) * (-20px / 2160) );
+  margin-top: auto;
+  border-top: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-bottom: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-right: calc(var(--screenHeight) * (20px / 2160) ) solid var(--color-white);
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft {
+  --atcBGCol: var(--backgroundColorComponent);
+  --atcCol: var(--textColor);
+  --atcIconBGCol: var(--backgroundColorComponent);
+  --atcIconCol: var(--textColor);
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .header {
+  text-align: right;
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .wrapper {
+  flex-direction: row-reverse;
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .meta {
+  margin-left: var(--halfMargin);
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .meta:after {
+  font-size: calc(var(--screenHeight) * (80px / 2160) );
+  display: flex;
+  justify-content: center;
+  font-family: "ui-icon-font" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  background-color: unset;
+  content: "";
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .message {
+  margin-left: calc(calc(var(--screenHeight) * (48px / 1080) ) + var(--halfMargin));
+}
+#ATCDialogsDiv #ATCDialogs li.ATCDialogs_Aircraft .message:after {
+  content: "";
+  position: absolute;
+  top: calc(calc(var(--screenHeight) * (16px / 1080) ));
+  right: calc(var(--screenHeight) * (-20px / 2160) );
+  margin-top: auto;
+  border-top: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-bottom: calc(var(--screenHeight) * (20px / 2160) ) solid transparent;
+  border-left: calc(var(--screenHeight) * (20px / 2160) ) solid var(--color-white);
+}
+#ATCDialogsDiv #ATCDialogs li .wrapper {
+  display: flex;
+  padding: 8px;
+}
+#ATCDialogsDiv #ATCDialogs li .wrapper .meta {
+  width: calc(var(--screenHeight) * (48px / 1080) );
+  height: calc(var(--screenHeight) * (48px / 1080) );
+  background-color: var(--atcIconBGCol);
+  color: var(--atcIconCol);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--halfMargin);
+}
+#ATCDialogsDiv #ATCDialogs li .wrapper .message {
+  padding: calc(var(--screenHeight) * (12px / 2160) );
+  border-radius: var(--halfMargin);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  min-height: calc(var(--screenHeight) * (105px / 2160) );
+  font-weight: 500;
+  background-color: var(--atcBGCol);
+  color: var(--atcCol);
+}
+
+.ATCOptions_Clickable {
+  max-width: 100%;
+}
+.ATCOptions_Clickable + .ATCOptions_Clickable {
+  margin-top: calc(var(--screenHeight) * (6px / 2160) );
+}
+
+.ATCOptions_Clickable new-push-button {
+  width: 100%;
+}
